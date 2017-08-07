@@ -1,0 +1,21 @@
+CCB_ADDRESS=vocms0803.cern.ch
+
+#Test a schedd 
+GSI_DAEMON_NAME=$(GSI_DAEMON_NAME),/DC=ch/DC=cern/OU=computers/CN=vocms0811.cern.ch
+
+#Adding the information for collector(s) & frontend(s)
+GSI_DAEMON_NAME=$(GSI_DAEMON_NAME),/DC=ch/DC=cern/OU=computers/CN=vocms0809.cern.ch
+GSI_DAEMON_NAME=$(GSI_DAEMON_NAME),/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=cmssrv215.fnal.gov
+
+# Appending CCB DN to collector configuration
+GSI_DAEMON_NAME=$(GSI_DAEMON_NAME),/DC=ch/DC=cern/OU=computers/CN=vocms0803.cern.ch
+
+# in case of HA setup, use:
+CONDOR_HOST=vocms0809.cern.ch
+CONDOR_HOST1=vocms0809.cern.ch
+CONDOR_HOST2=cmssrv215.fnal.gov
+COLLECTOR_HOST=vocms0809.cern.ch:9618,cmssrv215.fnal.gov:9618
+COLLECTOR_HOST=vocms0809.cern.ch:9618
+
+MUST_MODIFY_REQUEST_EXPRS = False
+Requirements = START
