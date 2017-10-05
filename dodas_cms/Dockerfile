@@ -13,10 +13,10 @@ RUN     wget http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-developmen
         wget http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo && \
         wget http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \
         rpm --import RPM-GPG-KEY-HTCondor && \
-        wget -O onedata.repo http://packages.onedata.org/yum/onedata_centos_7x.repo
+        wget -O onedata.rpm http://onedata-dev-packages.cloud.plgrid.pl/yum/centos/7x/x86_64/oneclient-17.06.0.rc4-1.el7.centos.x86_64.rpm
 
 RUN     yum install -y condor-all && \
-        yum -y --enablerepo=onedata install oneclient && \
+        yum -y localinstall onedata.rpm && \
         yum clean all
 
 
